@@ -1,41 +1,31 @@
-sdk.1rtb.net
-cdn.1rtb.net
+1rtb.net
 
-jp.ad.gameley.com
-de.ad.gameley.com
+ad.gameley.com
 
-ad-open2.fancydsp.com
-t2.fancyapi.com
-lftxali.fancyapi.com
-g.fancyapi.com
-mpcfg.fancydsp.com
+fancydsp.com
+fancyapi.com
 
-mores.toponad.com
+toponad.com
 
-tstatic.66mobi.com
-static.66mobi.com
-sdk-track.66mobi.com
-volc.bj.ad.track.66mobi.com
+66mobi.com
+adwangmai.com
 
-nfydm.richmob.cn
+richmob.cn
 
-adx.halomobi.com
+halomobi.com
 
-tk.statisticslinks.com
-da.statisticslinks.com
+statisticslinks.com
 
-tk.bridgeoos.com
-da.bridgeoos.com
+bridgeoos.com
 
-adm.zhangyuyidong.cn
-sdk.zhangyuyidong.cn
+zhangyuyidong.cn
+adintl.cn
 
-adsmartget.datads.cn
+datads.cn
 
-oss.cdn.adintl.cn
-v.adintl.cn
-
+vod-license-b.volccdn.com
 vod-license-m.volccdn.com
+vod-settings.volcvod.com
 tnc3-alisc1.zijieapi.com
 webcast-open.douyin.com
 lf-cdn-tos.bytescm.com
@@ -46,22 +36,14 @@ jt-sdk-ios.oss-cn-beijing.aliyuncs.com
 
 ilce.alicdn.com
 
-ssp-api.dmrtb.com
-dmsdk-api.dmrtb.com
+dmrtb.com
 
-logrcv.yunxish.com
-api.yunxish.com
-user-api.yunxish.com
-cpc-service-square.iggrowth.cn
-cpc-service-square.yunxish.com
-service.yunxish.com
-tracelog-debug.yunxish.com
+yunxish.com
+iggrowth.cn
+58iclick.com
 
-ad-api.adn-plus.com.cn
+adn-plus.com.cn
 
-s.tuia.cn
-
-sdk.adx.adwangmai.com
-sdk-cfg.adx.adwangmai.com
+tuia.cn
 
 api.shanghailingye.cn

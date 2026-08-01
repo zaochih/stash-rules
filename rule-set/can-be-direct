@@ -2,9 +2,10 @@
 .r2.cloudflarestorage.com
 
 # GEOIP CN
-.shuxinyc.com
+.cqtk.com.cn
 .mxbc.net
 .mxbc.com
+.shuxinyc.com
 
 # 要求 CNIP 访问
 api-huacloud.dev

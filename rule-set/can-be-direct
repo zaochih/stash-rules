@@ -7,5 +7,12 @@
 .mxbc.com
 .shuxinyc.com
 
+# HSBC
+hsbc.edge.sdk.awswaf.com
+mobile.eum-appdynamics.com
+tags.tiqcdn.com
+.online-metrix.net
+.tealiumiq.com
+
 # 要求 CNIP 访问
 api-huacloud.dev

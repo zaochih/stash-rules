@@ -9,11 +9,13 @@ on:
     paths:
       - geosite.list
       - merge.list
+      - rule-set/**
       - scripts/**
       - .github/workflows/build.yml
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   build:
@@ -53,3 +55,26 @@ jobs:
           git add -A
           git commit -q -m "Build $(TZ=Asia/Shanghai date +'%Y-%m-%d %H:%M') from v2fly/domain-list-community@$(git -C ../community rev-parse --short HEAD)"
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" release
+
+      # 放在发布之后：这一步出问题不会影响 release 分支的更新
+      - name: Report redundant entries in can-be-direct
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/check_redundant.py --rule-set rule-set/can-be-direct --plain-dir plain --against geolocation-cn --out report.md
+          title="can-be-direct 中有条目已被 geolocation-cn 收录"
+          num=$(gh issue list --state open --search "\"$title\" in:title" --json number,title \
+            --jq "[.[] | select(.title == \"$title\")][0].number // empty")
+          if [ -s report.md ]; then
+            if [ -z "$num" ]; then
+              gh issue create --title "$title" --body-file report.md
+            else
+              # 内容没变就不动，避免每天刷新
+              old=$(gh issue view "$num" --json body --jq .body | tr -d '\r')
+              if [ "$old" != "$(cat report.md)" ]; then
+                gh issue edit "$num" --body-file report.md
+              fi
+            fi
+          elif [ -n "$num" ]; then
+            gh issue close "$num" --comment "已经没有可移除的重复条目了，自动关闭。"
+          fi

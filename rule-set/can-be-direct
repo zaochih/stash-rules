@@ -1,13 +1,22 @@
 # 下载速度尚可
-.r2.cloudflarestorage.com
++.r2.cloudflarestorage.com
 
 # HSBC
 hsbc.edge.sdk.awswaf.com
 mobile.eum-appdynamics.com
 tags.tiqcdn.com
-.online-metrix.net
-.tealiumiq.com
++.online-metrix.net
++.tealiumiq.com
 e244181.a.akamaiedge.net
 
 # 要求 CNIP 访问
 api-huacloud.dev
+
+# 渝快办
++.cqdcg.com
++.cqsdlys.cn
++.cqyyxc.com
++.gpzshq.cn
++.isigning.com
++.isigning.cn
++.digitalcnzz.com

@@ -1,0 +1,55 @@
+name: Build geosite rule-sets
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 22 * * *" # 北京时间 06:30
+  push:
+    branches: [main]
+    paths:
+      - geosite.list
+      - merge.list
+      - scripts/**
+      - .github/workflows/build.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout v2fly/domain-list-community
+        uses: actions/checkout@v4
+        with:
+          repository: v2fly/domain-list-community
+          path: community
+
+      - name: Install mihomo
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download -R MetaCubeX/mihomo -p 'mihomo-linux-amd64-compatible-v*.gz' -O mihomo.gz
+          gunzip mihomo.gz && chmod +x mihomo
+          ./mihomo -v | head -1
+
+      - name: Export plaintext lists with the official v2fly tool
+        run: |
+          names=$(python3 scripts/build.py --print-export-names)
+          mkdir -p plain
+          (cd community && go run ./ --datapath=./data --outputdir="$GITHUB_WORKSPACE/plain" --exportlists="$names")
+
+      - name: Convert to mrs
+        run: python3 scripts/build.py --plain-dir plain --out-dir dist --mihomo ./mihomo
+
+      - name: Publish to release branch
+        run: |
+          cd dist
+          git init -q -b release
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Build $(TZ=Asia/Shanghai date +'%Y-%m-%d %H:%M') from v2fly/domain-list-community@$(git -C ../community rev-parse --short HEAD)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" release

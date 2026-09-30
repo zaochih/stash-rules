@@ -1,0 +1,52 @@
+# 要从 v2fly/domain-list-community 官方数据构建成 .mrs 的 geosite 列表，一行一个。
+# `name@attr` 表示只取带该属性的条目（例如 apple@cn）。
+# 产物路径：release 分支 geosite/<name>.mrs（同名 .list 是明文，方便排查）。
+#
+# `cn` 不在这里：它由 merge.list 合并 v2fly 与 ChinaMax 后生成。
+
+anthropic
+apple
+apple@cn
+apple-intelligence
+apple-music
+apple-podcasts
+apple-tvplus
+apple-update
+bing
+category-ads-all
+category-ai-!cn
+category-ai-cn
+category-anticensorship
+category-cas
+category-cdn-!cn
+category-communication
+category-consent-management
+category-cryptocurrency
+category-dev
+category-dev-cn
+category-dev@cn
+category-game-platforms-download
+category-games-!cn
+category-ip-geo-detect
+category-media
+category-orgs
+category-password-management
+category-social-media-!cn
+category-web-archive
+figma
+geolocation-!cn
+geolocation-!cn@cn
+geolocation-cn
+github-copilot
+google
+google@cn
+hsbc
+icloudprivaterelay
+itunes@cn
+meta
+microsoft
+microsoft@cn
+openai
+twitter
+wikimedia
+youtube
